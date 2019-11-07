@@ -1,5 +1,11 @@
-const server = require('./api/server.js');
+// Require .env as early as possible.
+require("dotenv").config();
 
-server.listen(4000, () => {
-  console.log('\n*** Server Running on http://localhost:4000 ***\n');
+const server = require("./api/server.js");
+
+// I like this destructuring.
+const { PORT } = process.env;
+
+server.listen(PORT, () => {
+  console.log(`\n*** Server Running on http://localhost:${PORT} ***\n`);
 });
